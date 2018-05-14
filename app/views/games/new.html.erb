@@ -1,0 +1,14 @@
+<h2>NEW GAME</h2>
+<% @letters.each do |l| %>
+  <div id="letters" ><%= p l %></div>
+<% end %>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <h4>What is the longest word that you can guess?</h4>
+  <input type="text" name="word_guess" placeholder="Guess a word">
+  <input type="submit" value="Play">
+  <input id="letters_score" name="letters_score" type="hidden"
+  value= "<%= @letters.join %>" >
+</form>
+
